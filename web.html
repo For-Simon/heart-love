@@ -1,0 +1,171 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&family=Sacramento&family=Dancing+Script&display=swap" rel="stylesheet">
+  <title>Hihi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .initial-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 2rem;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #yesButton {
+      background-color: #06d6a0;
+      color: white;
+    }
+
+    #noButton {
+      background-color: #FF0000;
+      color: white;
+    }
+
+    #letterButton {
+      background-color: #ff005d;
+      color: white;
+    }
+
+    #gifContainer img {
+      max-width: 300px;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    #gifContainer {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #sweetMessage {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #6a0572;
+      margin-top: 1rem;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    #gifContainer.show #sweetMessage {
+      opacity: 1;
+    }
+
+    #loveLetter {
+      display: none;
+      width: 80%;
+      height: 80vh;
+      overflow-y: auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    #loveLetter h2 {
+      font-family: 'Sacramento', cursive;
+      font-size: 2.5rem;
+      color: #d63384;
+      margin-bottom: 1rem;
+    }
+
+    #loveLetter p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #333;
+      max-width: 700px;
+      margin: 0 auto;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div class="initial-screen" id="initialScreen">
+    <h1>Would you like to hear what's in my heart?</h1>
+    <div class="buttons">
+      <button id="yesButton">Yes</button>
+      <button id="noButton">No</button>
+    </div>
+  </div>
+
+  <div id="gifContainer">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGRrZjljczRpeGprOWlucTFoejR1Z2N0cWw0MXB2bHJwMjllOXFmNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/5Yfcn9JO3ZMN6YtXPJ/giphy.gif" alt="Cute Love GIF">
+    <p id="sweetMessage">To Simon</p>
+    <button id="letterButton"> Read the letter </button>
+  </div>
+
+  <div id="loveLetter">
+    <h2>My Love Letter</h2>
+    <p>
+Hi, Baby!
+
+This is the very first letter Im writing for you, and honestly, words still fall short on how grateful I am to have found you. You walked into my life without a warning, and somehow, that became the best thing ever that happened to me. Its like discovering a part of me I never realized was missing, until you showed up and completed and a space in me I didn't even know was empty.
+
+Ive never been certain about anything in life. Every little decisions comes with hesitations. But the moment I met you, everything just settled. No doubts. No confusion. My heart, for once, just knew and and it never had second thoughts. I think I made it pretty obvious when you asked, "Are we dating?" and I instantly said yes without a hint of hesitation. Loving you wasnt a choice I had to make; my soul just found its home.
+
+Even when were 10 000km and 6 time zones apart, your love still managed to find its way to me and I carry that with me every single day. Because of your deep love, I've started to see myself through your eyes, my favorite eyes in the world. 
+
+You've given me a love that is patient, kind, and understanding and that means a lot to me. I love you more than these three words can ever fully express baby. And ill keep loving you always in all ways I know how, through every version and phases of you. 
+
+I want to grow with you, learn through our mistakes, get old with you and face every highs and lows side by side. I want to spend my lifetime not just staring at you but really seeing you.
+
+Forever yours,  
+Jes
+    </p>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const initialScreen = document.getElementById('initialScreen');
+    const gifContainer = document.getElementById('gifContainer');
+    const letterButton = document.getElementById('letterButton');
+    const loveLetter = document.getElementById('loveLetter');
+    const sweetMessage = document.getElementById('sweetMessage');
+
+    noButton.addEventListener('click', () => {
+      let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = (currentSize * 1.2) + 'px';
+    });
+
+    yesButton.addEventListener('click', () => {
+      initialScreen.style.display = 'none';
+      gifContainer.style.display = 'flex';
+      gifContainer.classList.add('show');
+    });
+
+    letterButton.addEventListener('click', () => {
+      loveLetter.style.display = 'block';
+      letterButton.style.display = 'none';
+      sweetMessage.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
